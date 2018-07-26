@@ -68,7 +68,7 @@ func gitClone(repo RepoConfig) (string, error) {
 }
 
 func gitFetch(repo RepoConfig) (string, error) {
-	cmd := exec.Command("git", "fetch")
+	cmd := exec.Command("git", "fetch", "--prune")
 	cmd.Dir = repo.Directory
 	stderr, err := cmd.StderrPipe()
 	if err != nil {
